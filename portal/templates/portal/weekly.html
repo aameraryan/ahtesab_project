@@ -1,0 +1,40 @@
+{% extends "portal/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+    <div class="jumbotron text-center">
+        <h3>{{ user }} | Weekly Records</h3>
+        <hr>
+
+        <table class="table-stripped table table-hover">
+            <tr>
+                <td>Week</td>
+                <td>Dawat Muslim</td>
+                <td>Dawat Non-Muslim</td>
+                <td>Hifz</td>
+                <td>Usra</td>
+                <td>Halqe Quraan</td>
+            </tr>
+            {% for week in weeks %}
+                <tr>
+{#                    <td>#}
+{#                        <a href="{% url "month_update" u_month=month.month_date.month u_year=month.month_date.year %}">{{ month.take_month_name }}</a>#}
+{#                    </td>#}
+                    <td>{{ week.take_week_name }}</td>
+                    <td>{{ week.dawat_muslim }}</td>
+                    <td>{{ week.dawat_non_muslim }}</td>
+                    <td>{{ week.hifz }}</td>
+                    <td>{{ week.usra }}</td>
+                    <td>{{ week.halq_quran }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <a href="{% url "week_add" %}"><button class="btn btn-info">Add A Week</button></a>
+
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "portal/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+    <div class="jumbotron text-center">
+        <h3>{{ user }}</h3>
+        <hr>
+
+        <a href="{% url "daily" %}" ><button class="btn btn-info">Daily</button></a>
+        <a href="{% url "weekly" %}" ><button class="btn btn-info">Weekly</button></a>
+        <a href="{% url "monthly" %}" ><button class="btn btn-info">Monthly</button></a>
+
+
+
+    </div>
+
+{% endblock %

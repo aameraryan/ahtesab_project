@@ -1,0 +1,33 @@
+{% extends "portal/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+    <div class="jumbotron text-center">
+        <h3>{{ user }} | Daily Records</h3>
+        <hr>
+
+        <table class="table-stripped table table-hover">
+            <tr>
+                <td>Date</td>
+                <td>Fajar</td>
+                <td>Zuhar</td>
+            </tr>
+            {% for day in days %}
+                <tr>
+                    <td>
+                        <a href="{% url "day_update" u_day=day.day_date.day u_month=day.day_date.month u_year=day.day_date.year %}">{{ day.day_date }}</a>
+                    </td>
+                    <td>{{ day.fajar }}</td>
+                    <td>{{ day.zuhar }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <a href="{% url "day_add" %}"><button class="btn btn-info">Add a Day</button></a>
+
+
+    </div>
+
+{% endblock %}

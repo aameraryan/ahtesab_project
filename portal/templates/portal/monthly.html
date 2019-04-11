@@ -1,0 +1,35 @@
+{% extends "portal/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+    <div class="jumbotron text-center">
+        <h3>{{ user }} | Monthly Records</h3>
+        <hr>
+
+        <table class="table-stripped table table-hover">
+            <tr>
+                <td>Month</td>
+                <td>Fast</td>
+                <td>Donation</td>
+                <td>Ijtema</td>
+            </tr>
+            {% for month in months %}
+                <tr>
+                    <td>
+                        <a href="{% url "month_update" u_month=month.month_date.month u_year=month.month_date.year %}">{{ month.take_month_name }}</a>
+                    </td>
+                    <td>{{ month.fast }}</td>
+                    <td>{{ month.donation }}</td>
+                    <td>{{ month.ijtema }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <a href="{% url "month_add" %}"><button class="btn btn-info">Add a month</button></a>
+
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "portal/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+    <div class="jumbotron">
+
+        <h3>Login</h3>
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            {{ form|crispy }}
+
+            <input type="submit" class="btn btn-primary" value="Login"><br><br>
+            <a class="text-danger">Forgot Password ? </a>
+
+        </form>
+
+    </div>
+
+{% endblock %}

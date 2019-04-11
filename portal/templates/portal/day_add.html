@@ -1,0 +1,25 @@
+{% extends "portal/base.html" %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+    <div class="jumbotron text-center">
+        <h3>Add Day</h3>
+        <hr>
+
+            <form method="post" >
+                {% csrf_token %}
+
+                {{ form|crispy }}
+
+                <input type="submit" value="Submit" class="btn btn-info">
+            </form>
+    </div>
+
+
+
+{% endblock %}
